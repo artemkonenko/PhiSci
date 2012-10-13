@@ -1,4 +1,6 @@
 *.class
+*.db
+*.txt
 
 # Package Files #
 *.jar

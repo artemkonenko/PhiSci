@@ -1,10 +1,4 @@
-import java.awt.BorderLayout;
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -158,13 +152,13 @@ public class Screen extends Canvas implements Runnable {
 		way.add(aMap[py][px]);
 		//addDrawble(way);
 		
-		player = getSprite("hero1.png");
+		player = getSprite("assets/hero1.png");
 		
-		Spot.solid = getSprite("stone1.png");
+		Spot.solid = getSprite("assets/stone1.png");
 		//Spot.solid = getSprite("solid.png");
-		Spot.floor = getSprite("floor.png");
-		Spot.start = getSprite("start1.png");
-		Spot.finish = getSprite("finish1.png");
+		Spot.floor = getSprite("assets/floor.png");
+		Spot.start = getSprite("assets/start1.png");
+		Spot.finish = getSprite("assets/finish1.png");
 	}
 	
 	public void reinit(String name) {
@@ -213,7 +207,7 @@ public class Screen extends Canvas implements Runnable {
 		//lTime.setBounds(0, 0, 40, 200);
 		frame.add(lTime, BorderLayout.NORTH);
 		frame.pack();
-		frame.setResizable(false);
+		//frame.setResizable(false);
 		frame.setVisible(true);
 		//this.start();
 
@@ -224,8 +218,8 @@ public class Screen extends Canvas implements Runnable {
 		BufferedImage sourceImage = null;
 
 		try {
-			URL url = this.getClass().getClassLoader().getResource(path);
-			sourceImage = ImageIO.read(url);
+			Image image = ImageIO.read(new File(path));
+			sourceImage = (BufferedImage) image;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

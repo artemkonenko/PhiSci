@@ -21,7 +21,7 @@ public class Map implements IDrawble{
 	 * @throws IOException
 	 */
 	private void parseMap (String mapSrc) throws IOException {
-		FileReader fr = new FileReader("./data/" + mapSrc + ".lmap"); //
+		FileReader fr = new FileReader("data/" + mapSrc + ".lmap"); //
 		BufferedReader br = new BufferedReader(fr);
 		
 		// Парсим размерности (первая строчка файла карты)

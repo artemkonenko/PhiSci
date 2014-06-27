@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/dummer/phisci.png?label=ready&title=Ready)](https://waffle.io/dummer/phisci)
 PhiSci
 ======
 

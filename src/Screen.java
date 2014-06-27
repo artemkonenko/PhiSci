@@ -133,7 +133,7 @@ public class Screen extends Canvas implements Runnable {
 		player.draw(g, px * SCALE, py * SCALE, SCALE);
 		
 		g.dispose();
-		bs.show(); // ïîêàçàòü
+		bs.show(); // показать
 	}
 	
 	public void update(long delta) {

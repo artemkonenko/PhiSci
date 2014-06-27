@@ -51,7 +51,7 @@ public class MainGenerator {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel label = new JLabel("Ширина:");
+		JLabel label = new JLabel("РЁРёСЂРёРЅР°:");
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
 		label.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label.setBounds(12, 13, 81, 25);
@@ -63,7 +63,7 @@ public class MainGenerator {
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		JLabel label_1 = new JLabel("Высота:");
+		JLabel label_1 = new JLabel("Р’С‹СЃРѕС‚Р°:");
 		label_1.setHorizontalAlignment(SwingConstants.RIGHT);
 		label_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label_1.setBounds(12, 51, 81, 25);
@@ -75,7 +75,7 @@ public class MainGenerator {
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		
-		JLabel lblC = new JLabel("Длина:");
+		JLabel lblC = new JLabel("Р”Р»РёРЅР°:");
 		lblC.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblC.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblC.setBounds(12, 89, 81, 25);
@@ -87,7 +87,7 @@ public class MainGenerator {
 		frame.getContentPane().add(textField_2);
 		textField_2.setColumns(10);
 		
-		JLabel label_2 = new JLabel("Имя:");
+		JLabel label_2 = new JLabel("РРјСЏ:");
 		label_2.setHorizontalAlignment(SwingConstants.RIGHT);
 		label_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		label_2.setBounds(12, 127, 81, 25);
@@ -99,7 +99,7 @@ public class MainGenerator {
 		frame.getContentPane().add(textField_3);
 		textField_3.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Генерировать");
+		JButton btnNewButton = new JButton("Р“РµРЅРµСЂРёСЂРѕРІР°С‚СЊ");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MapGenerator mg = new MapGenerator(Integer.parseInt(textField.getText()), Integer.parseInt(textField_1.getText()), Integer.parseInt(textField_2.getText()));

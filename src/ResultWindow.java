@@ -128,7 +128,7 @@ public class ResultWindow implements Runnable {
 	 */
 	private void initialize() {
 		frmc = new JFrame();
-		frmc.setTitle("Топ-лист");
+		frmc.setTitle("РўРѕРї-Р»РёСЃС‚");
 		frmc.setBounds(100, 100, 200, 688);
 		frmc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmc.getContentPane().setLayout(new GridLayout(1, 0, 0, 0));

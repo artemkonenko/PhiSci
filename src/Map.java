@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class Map implements IDrawble{
 	
-	// Ссылки на старт и финиш. Другие точки входа в граф нам пока нем нужны.
+	// РЎСЃС‹Р»РєРё РЅР° СЃС‚Р°СЂС‚ Рё С„РёРЅРёС€. Р”СЂСѓРіРёРµ С‚РѕС‡РєРё РІС…РѕРґР° РІ РіСЂР°С„ РЅР°Рј РїРѕРєР° РЅРµРј РЅСѓР¶РЅС‹.
 	public Spot start, finish;
 	public Spot[][] aMap;
 	
@@ -21,16 +21,16 @@ public class Map implements IDrawble{
 	 * @throws IOException
 	 */
 	private void parseMap (String mapSrc) throws IOException {
-		FileReader fr = new FileReader("./data/" + mapSrc + ".lmap"); // 
+		FileReader fr = new FileReader("./data/" + mapSrc + ".lmap"); //
 		BufferedReader br = new BufferedReader(fr);
 		
-		// Парсим размерности (первая строчка файла карты)
+		// РџР°СЂСЃРёРј СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё (РїРµСЂРІР°СЏ СЃС‚СЂРѕС‡РєР° С„Р°Р№Р»Р° РєР°СЂС‚С‹)
 		String sSize[] = br.readLine().split("/");
 		size = new int[2];
 		for (int i = 0; i < sSize.length; i++)
 			size[i] = Integer.parseInt(sSize[i]);
 		
-		// Заводим временный массивчик для удобной генерации графа 
+		// Р—Р°РІРѕРґРёРј РІСЂРµРјРµРЅРЅС‹Р№ РјР°СЃСЃРёРІС‡РёРє РґР»СЏ СѓРґРѕР±РЅРѕР№ РіРµРЅРµСЂР°С†РёРё РіСЂР°С„Р° 
 		aMap = new Spot[size[0]][size[1]];
 		
 		for (int i = 0; i < size[0]; i++) {
@@ -47,7 +47,7 @@ public class Map implements IDrawble{
 	}
 	
 	/**
-	 * По чарным битам восстанавливает структуру графа
+	 * РџРѕ С‡Р°СЂРЅС‹Рј Р±РёС‚Р°Рј РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЃС‚СЂСѓРєС‚СѓСЂСѓ РіСЂР°С„Р°
 	 */
 	private void reconnect() {
 		int heigth = size[0];

@@ -10,7 +10,7 @@ public class TestMask {
 	public static void main(String[] args){
 		
 		try {
-			map = new Map("gg1"); // minimap
+			map = new Map("test404060"); // minimap
 		} catch (Exception e) {
 			System.out.println("GenMap: " + e);
 		}

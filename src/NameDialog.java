@@ -22,38 +22,38 @@ public class NameDialog extends JDialog implements ActionListener{
 	public NameDialog(float time, int ideal, int real) {
 		setType(Type.UTILITY);
 		setResizable(false);
-		setTitle("Финиш достигнут!");
+		setTitle("Р¤РёРЅРёС€ РґРѕСЃС‚РёРіРЅСѓС‚!");
 		setBounds(100, 100, 407, 243);
 		getContentPane().setLayout(null);
 		
-		JLabel label = new JLabel("Ваше время:");
+		JLabel label = new JLabel("Р’Р°С€Рµ РІСЂРµРјСЏ:");
 		label.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		label.setBounds(12, 13, 105, 22);
 		getContentPane().add(label);
 		
-		JLabel label_1 = new JLabel("Количество шагов:");
+		JLabel label_1 = new JLabel("РљРѕР»РёС‡РµСЃС‚РІРѕ С€Р°РіРѕРІ:");
 		label_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		label_1.setBounds(12, 48, 156, 22);
 		getContentPane().add(label_1);
 		
-		JLabel label_2 = new JLabel("Лишних из них:");
+		JLabel label_2 = new JLabel("Р›РёС€РЅРёС… РёР· РЅРёС…:");
 		label_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		label_2.setBounds(12, 83, 131, 22);
 		getContentPane().add(label_2);
 		
-		JLabel label_3 = new JLabel("Ваше имя:");
+		JLabel label_3 = new JLabel("Р’Р°С€Рµ РёРјСЏ:");
 		label_3.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		label_3.setBounds(12, 118, 87, 22);
 		getContentPane().add(label_3);
 		
 		textField = new JTextField();
-		textField.setText("Василиса Премудрая");
+		textField.setText("Р’Р°СЃРёР»РёСЃР° РџСЂРµРјСѓРґСЂР°СЏ");
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		textField.setBounds(101, 116, 286, 28);
 		getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		JButton button = new JButton("Добавиться в таблицу рекордов");
+		JButton button = new JButton("Р”РѕР±Р°РІРёС‚СЊСЃСЏ РІ С‚Р°Р±Р»РёС†Сѓ СЂРµРєРѕСЂРґРѕРІ");
 		button.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		button.setBounds(12, 170, 375, 28);
 		button.addActionListener(this);

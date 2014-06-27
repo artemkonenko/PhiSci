@@ -2,21 +2,21 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 public class Sprite {
-    private Image image; //изображение
+    private Image image; //РёР·РѕР±СЂР°Р¶РµРЅРёРµ
     
     public Sprite(Image image) {
         this.image = image;
     }
     
-    public int getWidth() { //получаем ширину картинки
+    public int getWidth() { //РїРѕР»СѓС‡Р°РµРј С€РёСЂРёРЅСѓ РєР°СЂС‚РёРЅРєРё
         return image.getWidth(null);
     }
 
-    public int getHeight() { //получаем высоту картинки
+    public int getHeight() { //РїРѕР»СѓС‡Р°РµРј РІС‹СЃРѕС‚Сѓ РєР°СЂС‚РёРЅРєРё
         return image.getHeight(null);
     }
     
-    public void draw(Graphics g,int x,int y, int scale) { //рисуем картинку
+    public void draw(Graphics g,int x,int y, int scale) { //СЂРёСЃСѓРµРј РєР°СЂС‚РёРЅРєСѓ
         g.drawImage(image, x, y, scale, scale, null);
     }
 }

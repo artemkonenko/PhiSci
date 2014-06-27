@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class MapGenerator {
 
-	// Пары координат
+	// РџР°СЂС‹ РєРѕРѕСЂРґРёРЅР°С‚
 	class Pair {
 		public int x, y;
 		
@@ -59,7 +59,7 @@ public class MapGenerator {
 	private Spot[][] aMap;
 	
 	
-	// Дэк шагов
+	// Р”СЌРє С€Р°РіРѕРІ
 	private Deque<Pair> steps = new LinkedList<Pair>();
 	private List<Pair> ways = new LinkedList<Pair>();
 	
@@ -69,7 +69,7 @@ public class MapGenerator {
 
 	
 /*	*//**
-	 * По чарным битам восстанавливает структуру графа
+	 * РџРѕ С‡Р°СЂРЅС‹Рј Р±РёС‚Р°Рј РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЃС‚СЂСѓРєС‚СѓСЂСѓ РіСЂР°С„Р°
 	 *//*
 	private void reconnect() {
 		for (int h=0; h < heigth; h++) {
@@ -113,13 +113,13 @@ public class MapGenerator {
 	 * 
 	 * @param width
 	 * @param heigth
-	 * @param length - длина пути
+	 * @param length - РґР»РёРЅР° РїСѓС‚Рё
 	 */
 	public MapGenerator(int width, int heigth, int length) {
 		this.width = width;
 		this.heigth = heigth;
 		
-		// Всё начинается с массива спотов...
+		// Р’СЃС‘ РЅР°С‡РёРЅР°РµС‚СЃСЏ СЃ РјР°СЃСЃРёРІР° СЃРїРѕС‚РѕРІ...
 		aMap = new Spot[heigth][width];
 		for (int h=0; h < heigth; h++) {
 			for (int w=0; w<width; w++) {
@@ -131,22 +131,22 @@ public class MapGenerator {
 			}
 		}
 		
-		// Возводим граф расставляя связи
+		// Р’РѕР·РІРѕРґРёРј РіСЂР°С„ СЂР°СЃСЃС‚Р°РІР»СЏСЏ СЃРІСЏР·Рё
 		//this.reconnect();
 		
-		// Выбираем старт
+		// Р’С‹Р±РёСЂР°РµРј СЃС‚Р°СЂС‚
 		int sx = rand.nextInt(this.width-2) + 1;
 		int sy = rand.nextInt(this.heigth-2) + 1;
 		
-		// И делаем его началом нашего пути
+		// Р РґРµР»Р°РµРј РµРіРѕ РЅР°С‡Р°Р»РѕРј РЅР°С€РµРіРѕ РїСѓС‚Рё
 		steps.addLast(new Pair(sx, sy));
 		aMap[sy][sx].dijkstraFlag = true;
 		
-		// "Идем пока не дойдем" (c) Искариот
+		// "РРґРµРј РїРѕРєР° РЅРµ РґРѕР№РґРµРј" (c) РСЃРєР°СЂРёРѕС‚
 		while (steps.size() <= length) { 
-			Pair l = steps.getLast(); // Откуда шагаем
+			Pair l = steps.getLast(); // РћС‚РєСѓРґР° С€Р°РіР°РµРј
 			
-			// Собираем список всех доступных клеток
+			// РЎРѕР±РёСЂР°РµРј СЃРїРёСЃРѕРє РІСЃРµС… РґРѕСЃС‚СѓРїРЅС‹С… РєР»РµС‚РѕРє
 			List<Pair> lp = new ArrayList<Pair>();
 			
 			if (l.x > 1 && !aMap[l.y][l.x-1].dijkstraFlag)
@@ -160,11 +160,11 @@ public class MapGenerator {
 			
 			System.out.println(steps.getLast().toString());
 			
-			// Выбираем куда идти
-			if (lp.size() == 0) { // Если мы в тупике, то шаг назад
-				// Делаем шаг назад
+			// Р’С‹Р±РёСЂР°РµРј РєСѓРґР° РёРґС‚Рё
+			if (lp.size() == 0) { // Р•СЃР»Рё РјС‹ РІ С‚СѓРїРёРєРµ, С‚Рѕ С€Р°Рі РЅР°Р·Р°Рґ
+				// Р”РµР»Р°РµРј С€Р°Рі РЅР°Р·Р°Рґ
 				Pair p = steps.removeLast();
-				// Смотрим куда отшагнули
+				// РЎРјРѕС‚СЂРёРј РєСѓРґР° РѕС‚С€Р°РіРЅСѓР»Рё
 				Pair pp = steps.getLast();
 				
 				if (pp.x - p.x == 1) {
@@ -176,8 +176,8 @@ public class MapGenerator {
 				} else {
 					aMap[pp.y][pp.x].removeBottom();
 				}
-			} else { // Иначе шагаем
-				// Выбираем куда шагаем
+			} else { // РРЅР°С‡Рµ С€Р°РіР°РµРј
+				// Р’С‹Р±РёСЂР°РµРј РєСѓРґР° С€Р°РіР°РµРј
 				Pair p = lp.get(rand.nextInt(lp.size()));
 				
 				
@@ -201,8 +201,8 @@ public class MapGenerator {
 		
 		this.finish = aMap[steps.getLast().y][steps.getLast().x];
 		this.finish.setFinish();
-		//################## На этом генерация основного пути закончилась
-		// Чистим следы шагов из тупиков
+		//################## РќР° СЌС‚РѕРј РіРµРЅРµСЂР°С†РёСЏ РѕСЃРЅРѕРІРЅРѕРіРѕ РїСѓС‚Рё Р·Р°РєРѕРЅС‡РёР»Р°СЃСЊ
+		// Р§РёСЃС‚РёРј СЃР»РµРґС‹ С€Р°РіРѕРІ РёР· С‚СѓРїРёРєРѕРІ
 		for (int i = 0; i < aMap.length; i++) {
 			for (int j = 0; j < aMap.length; j++) {
 				if (!steps.contains(new Pair(j, i))) {
@@ -213,7 +213,7 @@ public class MapGenerator {
 		
 		ways.addAll(steps);
 		
-		// Генерируем дополнительные тупики
+		// Р“РµРЅРµСЂРёСЂСѓРµРј РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ С‚СѓРїРёРєРё
 		int z = 0;
 		while (z++ < length * 2) { // this.countOfAllBlock() - this.countOfBlock() < this.countOfAllBlock() * (double)3 / 2  
 			this.makeFakeWay(rand.nextInt(length));
@@ -229,7 +229,7 @@ public class MapGenerator {
 	}
 
 	/**
-	 * Количество установленных стен на карте
+	 * РљРѕР»РёС‡РµСЃС‚РІРѕ СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹С… СЃС‚РµРЅ РЅР° РєР°СЂС‚Рµ
 	 * @return
 	 */
 	private int countOfBlock() {
@@ -245,7 +245,7 @@ public class MapGenerator {
 	}
 	
 	/**
-	 * Максимальное количество стен карты
+	 * РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РµРЅ РєР°СЂС‚С‹
 	 * @return
 	 */
 	private int countOfAllBlock() {
@@ -253,7 +253,7 @@ public class MapGenerator {
 	}
 	
 	/**
-	 * Прокладываем фейковый путь
+	 * РџСЂРѕРєР»Р°РґС‹РІР°РµРј С„РµР№РєРѕРІС‹Р№ РїСѓС‚СЊ
 	 */
 	private void makeFakeWay(int maxlen) {
 		Deque<Pair> way = new LinkedList<Pair>();
@@ -262,9 +262,9 @@ public class MapGenerator {
 		way.addLast(exSpot[rand.nextInt(exSpot.length)]);
 		
 		while (way.size() < maxlen) {
-			Pair l = way.getLast(); // Откуда шагаем
+			Pair l = way.getLast(); // РћС‚РєСѓРґР° С€Р°РіР°РµРј
 			
-			// Собираем список всех доступных клеток
+			// РЎРѕР±РёСЂР°РµРј СЃРїРёСЃРѕРє РІСЃРµС… РґРѕСЃС‚СѓРїРЅС‹С… РєР»РµС‚РѕРє
 			List<Pair> lp = new ArrayList<Pair>();
 			
 			if (l.x > 1 && !steps.contains(new Pair(l.x - 1, l.y)))
@@ -276,11 +276,11 @@ public class MapGenerator {
 			if (l.y < heigth - 2 && !steps.contains(new Pair(l.x, l.y + 1)))
 				lp.add(new Pair(l.x, l.y + 1));
 			
-			// Выбираем куда идти
+			// Р’С‹Р±РёСЂР°РµРј РєСѓРґР° РёРґС‚Рё
 			if (lp.size() == 0) {
 				break;
-			} else { // Иначе шагаем
-				// Выбираем куда шагаем
+			} else { // РРЅР°С‡Рµ С€Р°РіР°РµРј
+				// Р’С‹Р±РёСЂР°РµРј РєСѓРґР° С€Р°РіР°РµРј
 				Pair p = lp.get(rand.nextInt(lp.size()));
 				
 				if (l.x - p.x == 1) {
@@ -299,7 +299,7 @@ public class MapGenerator {
 		}
 		
 		ways.addAll(way);
-		System.out.println("Провели фейковый путь длины: " + way.size());
+		System.out.println("РџСЂРѕРІРµР»Рё С„РµР№РєРѕРІС‹Р№ РїСѓС‚СЊ РґР»РёРЅС‹: " + way.size());
 	}
 	
 	public void writeMapToFile(String src) {
